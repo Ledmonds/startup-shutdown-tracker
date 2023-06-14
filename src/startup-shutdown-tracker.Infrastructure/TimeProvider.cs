@@ -6,5 +6,5 @@ namespace startup_shutdown_tracker.Infrastructure;
 public class TimeProvider : ITimeProvider
 {
 	public DateOnly Date => DateOnly.FromDateTime(DateTime.UtcNow);
-	public DateTimeOffset UtcNow => DateTimeOffset.UtcNow;
+	public DateTime LocalTime => DateTime.Now;
 }
