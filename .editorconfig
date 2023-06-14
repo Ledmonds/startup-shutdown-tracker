@@ -1,0 +1,8 @@
+[*.cs]
+csharp_style_namespace_declarations = file_scoped:error
+
+# IDE0002: Name can be simplified
+dotnet_diagnostic.IDE0002.severity = warning
+
+# IDE0005: Remove unnecessary imports
+dotnet_diagnostic.IDE0005.severity = error
