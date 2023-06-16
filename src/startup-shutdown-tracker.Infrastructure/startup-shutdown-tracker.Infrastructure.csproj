@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" />
+    <PackageReference Include="System.Linq.Async" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\startup-shutdown-tracker.Application\startup-shutdown-tracker.Application.csproj" />
 	<ProjectReference Include="..\startup-shutdown-tracker.Domain\startup-shutdown-tracker.Domain.csproj" />
   </ItemGroup>
