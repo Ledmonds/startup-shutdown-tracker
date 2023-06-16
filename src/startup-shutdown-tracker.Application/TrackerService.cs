@@ -21,7 +21,7 @@ public class TrackerService
 		var entry = new TrackerEntry()
 		{
 			Date = _timeProvider.Date,
-			StartedAt = _timeProvider.LocalTime,
+			StartedAt = _timeProvider.Time,
 			EndedAt = null,
 		};
 
@@ -41,14 +41,14 @@ public class TrackerService
 			{
 				Date = _timeProvider.Date,
 				StartedAt = null,
-				EndedAt = _timeProvider.LocalTime,
+				EndedAt = _timeProvider.Time,
 			};
 
 			tracker.Entries.Add(shutdownOnlyEntry);
 		}
 		else
 		{
-			lastStartupEntry.EndedAt = _timeProvider.LocalTime;
+			lastStartupEntry.EndedAt = _timeProvider.Time;
 		}
 
 		await _repository.SaveTrackerAsync(tracker);
