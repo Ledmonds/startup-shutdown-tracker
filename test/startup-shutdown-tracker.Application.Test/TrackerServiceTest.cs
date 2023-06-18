@@ -13,24 +13,27 @@ public class TrackerServiceTest
 	private readonly Mock<ITrackerRepository> _repository = new();
 	private readonly Mock<ITimeProvider> _timeProvider = new();
 	private readonly TrackerService _trackerService;
+	private static readonly DateOnly _todaysDate = new DateOnly(2022, 01, 01);
 
 	public TrackerServiceTest()
 	{
 		_trackerService = new TrackerService(_repository.Object, _timeProvider.Object);
+
+		_timeProvider.Setup(x => x.Date).Returns(_todaysDate);
 	}
 
 	[Fact]
-	public async Task Adds_a_startup_entry_to_the_tracker_repository()
+	public async Task Adds_open_startup_entry()
 	{
 		// Arrange
-		var existingEntry = new TrackerEntry()
+		var today = new TrackerEntry()
 		{
-			Date = new DateOnly(2021, 10, 10),
+			Date = _todaysDate,
 			StartedAt = new TimeOnly(10, 10, 10),
 			EndedAt = new TimeOnly(10, 10, 10),
 		};
 
-		var tracker = new Tracker() { Entries = new List<TrackerEntry>() { existingEntry } };
+		var tracker = new Tracker() { Entries = new List<TrackerEntry>() { today } };
 		_repository.Setup(x => x.GetTrackerAsync()).ReturnsAsync(tracker);
 
 		var startupDate = new DateOnly(2023, 03, 12);
@@ -43,7 +46,7 @@ public class TrackerServiceTest
 			.Callback<Tracker>(x =>
 			{
 				x.Entries.Should().HaveCount(2);
-				x.Entries[0].Should().BeSameAs(existingEntry);
+				x.Entries[0].Should().BeSameAs(today);
 				x.Entries[1]
 					.Should()
 					.BeEquivalentTo(
@@ -64,25 +67,31 @@ public class TrackerServiceTest
 	}
 
 	[Fact]
-	public async Task Adds_a_should_entry_to_the_tracker_repository()
+	public async Task Modifies_pre_existing_open_entry_for_current_day()
 	{
 		// Arrange
-		var entryToBeLeftUnmodified = new TrackerEntry()
+		var yesterday = new TrackerEntry()
 		{
-			Date = new DateOnly(2021, 08, 05),
+			Date = _todaysDate.AddDays(-1),
 			StartedAt = new TimeOnly(10, 10, 10),
 			EndedAt = new TimeOnly(17, 00, 00),
 		};
-		var entryForShutdown = new TrackerEntry()
+		var earlierToday = new TrackerEntry()
 		{
-			Date = new DateOnly(2021, 10, 15),
-			StartedAt = new TimeOnly(09, 00, 00),
+			Date = _todaysDate,
+			StartedAt = new TimeOnly(06, 00, 00),
+			EndedAt = new TimeOnly(07, 00, 00),
+		};
+		var today = new TrackerEntry()
+		{
+			Date = _todaysDate,
+			StartedAt = new TimeOnly(08, 00, 00),
 			EndedAt = null,
 		};
 
 		var tracker = new Tracker()
 		{
-			Entries = new[] { entryToBeLeftUnmodified, entryForShutdown }
+			Entries = new List<TrackerEntry>() { yesterday, earlierToday, today }
 		};
 		_repository.Setup(x => x.GetTrackerAsync()).ReturnsAsync(tracker);
 
@@ -93,16 +102,69 @@ public class TrackerServiceTest
 			.Setup(x => x.SaveTrackerAsync(tracker))
 			.Callback<Tracker>(x =>
 			{
-				x.Entries.Should().HaveCount(2);
-				x.Entries[0].Should().BeSameAs(entryToBeLeftUnmodified);
-				x.Entries[1]
+				x.Entries.Should().HaveCount(3);
+				x.Entries[0].Should().BeSameAs(yesterday);
+				x.Entries[1].Should().BeSameAs(earlierToday);
+				x.Entries[2]
 					.Should()
 					.BeEquivalentTo(
 						new TrackerEntry()
 						{
-							Date = entryForShutdown.Date,
-							StartedAt = entryForShutdown.StartedAt,
-							EndedAt = new TimeOnly(18, 00, 01),
+							Date = today.Date,
+							StartedAt = today.StartedAt,
+							EndedAt = shutdownTime,
+						}
+					);
+			});
+
+		// Act
+		await _trackerService.AddShutdownEntry();
+
+		// Assert
+		_repository.VerifyAll();
+	}
+
+	[Fact]
+	public async Task Adds_new_shutdown_entry_if_pre_existinig_entry_for_current_day_is_closed()
+	{
+		// Arrange
+		var yesterday = new TrackerEntry()
+		{
+			Date = _todaysDate.AddDays(-1),
+			StartedAt = new TimeOnly(10, 10, 10),
+			EndedAt = new TimeOnly(17, 00, 00),
+		};
+		var today = new TrackerEntry()
+		{
+			Date = _todaysDate,
+			StartedAt = new TimeOnly(08, 00, 00),
+			EndedAt = new TimeOnly(17, 00, 00),
+		};
+
+		var tracker = new Tracker()
+		{
+			Entries = new List<TrackerEntry>() { yesterday, today }
+		};
+		_repository.Setup(x => x.GetTrackerAsync()).ReturnsAsync(tracker);
+
+		var shutdownTime = new TimeOnly(18, 00, 00);
+		_timeProvider.Setup(x => x.Time).Returns(shutdownTime);
+
+		_repository
+			.Setup(x => x.SaveTrackerAsync(tracker))
+			.Callback<Tracker>(x =>
+			{
+				x.Entries.Should().HaveCount(3);
+				x.Entries[0].Should().BeSameAs(yesterday);
+				x.Entries[1].Should().BeSameAs(today);
+				x.Entries[2]
+					.Should()
+					.BeEquivalentTo(
+						new TrackerEntry()
+						{
+							Date = _todaysDate,
+							StartedAt = null,
+							EndedAt = shutdownTime,
 						}
 					);
 			});

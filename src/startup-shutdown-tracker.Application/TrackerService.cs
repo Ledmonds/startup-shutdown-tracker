@@ -32,25 +32,32 @@ public class TrackerService
 	public async Task AddShutdownEntry()
 	{
 		var tracker = await _repository.GetTrackerAsync();
-		var lastStartupEntry = tracker.Entries.Last();
 
-		// If the last entry already has shutdown entry, we do not want to overwrite it.
-		if (lastStartupEntry.EndedAt.HasValue)
-		{
-			var shutdownOnlyEntry = new TrackerEntry()
-			{
-				Date = _timeProvider.Date,
-				StartedAt = null,
-				EndedAt = _timeProvider.Time,
-			};
+		var lastStartupEntry = tracker.Entries
+			.Where(entry => entry.Date == _timeProvider.Date && entry.StartedAt.HasValue)
+			.LastOrDefault();
 
-			tracker.Entries.Add(shutdownOnlyEntry);
-		}
-		else
+		if (lastStartupEntry is not null && !lastStartupEntry.EndedAt.HasValue)
 		{
 			lastStartupEntry.EndedAt = _timeProvider.Time;
+
+			await _repository.SaveTrackerAsync(tracker);
+
+			return;
 		}
 
+		// If there is no pre-existing entry for the given day, or if the last entry has already been ended, add a new entry
+		var shutdownOnlyEntry = new TrackerEntry()
+		{
+			Date = _timeProvider.Date,
+			StartedAt = null,
+			EndedAt = _timeProvider.Time,
+		};
+
+		tracker.Entries.Add(shutdownOnlyEntry);
+
 		await _repository.SaveTrackerAsync(tracker);
+
+		return;
 	}
 }
