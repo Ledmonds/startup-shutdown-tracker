@@ -11,7 +11,7 @@ namespace startup_shutdown_tracker.Infrastructure;
 public class TrackerRepository : ITrackerRepository
 {
 	private const string _filepath = @"C:\\startup-shutdown.csv";
-	private static readonly CultureInfo _cultureInfo = CultureInfo.InvariantCulture;
+	private static readonly CultureInfo _cultureInfo = CultureInfo.CurrentCulture;
 
 	public async Task<Tracker> GetTrackerAsync()
 	{
