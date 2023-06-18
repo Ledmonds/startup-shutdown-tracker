@@ -4,6 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="CsvHelper" Version="30.0.1" />
+    <PackageVersion Include="FluentCommandLineParser" Version="1.4.3" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="7.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />

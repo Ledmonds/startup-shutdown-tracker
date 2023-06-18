@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentCommandLineParser" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
 
