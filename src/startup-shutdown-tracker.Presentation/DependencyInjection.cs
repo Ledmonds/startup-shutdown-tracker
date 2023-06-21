@@ -2,6 +2,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using startup_shutdown_tracker.Application;
+using startup_shutdown_tracker.Application.Calculation;
 using startup_shutdown_tracker.Infrastructure;
 
 public static class ServiceCollectionExtensions
@@ -11,6 +12,7 @@ public static class ServiceCollectionExtensions
 		serviceCollection.AddSingleton<ITimeProvider, TimeProvider>();
 		serviceCollection.AddSingleton<ITrackerRepository, TrackerRepository>();
 		serviceCollection.AddSingleton<TrackerService>();
+		serviceCollection.AddSingleton<HoursCalculator>();
 
 		return serviceCollection;
 	}
