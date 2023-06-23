@@ -15,7 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BFE4E29C-F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E13C1E2E-3548-4893-8C0D-622C3767C13A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "startup-shutdown-tracker.Application.Test", "test\startup-shutdown-tracker.Application.Test\startup-shutdown-tracker.Application.Test.csproj", "{AC2D2782-81D6-4513-BD4C-DDAFF389BFEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "startup-shutdown-tracker.Application.Test", "test\startup-shutdown-tracker.Application.Test\startup-shutdown-tracker.Application.Test.csproj", "{AC2D2782-81D6-4513-BD4C-DDAFF389BFEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "startup-shutdown-tracker.Tracking.Application", "src\startup-shutdown-tracker.Tracking.Application\startup-shutdown-tracker.Tracking.Application.csproj", "{59AA4309-1C62-4FB6-8A01-FED2A8B06F23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "startup-shutdown-tracker.Common", "src\startup-shutdown-tracker.Common\startup-shutdown-tracker.Common.csproj", "{90CA8E0F-9B0D-4F4D-8177-DBD0F1E02ADA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,14 @@ Global
 		{AC2D2782-81D6-4513-BD4C-DDAFF389BFEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC2D2782-81D6-4513-BD4C-DDAFF389BFEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC2D2782-81D6-4513-BD4C-DDAFF389BFEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59AA4309-1C62-4FB6-8A01-FED2A8B06F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59AA4309-1C62-4FB6-8A01-FED2A8B06F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59AA4309-1C62-4FB6-8A01-FED2A8B06F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59AA4309-1C62-4FB6-8A01-FED2A8B06F23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90CA8E0F-9B0D-4F4D-8177-DBD0F1E02ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90CA8E0F-9B0D-4F4D-8177-DBD0F1E02ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90CA8E0F-9B0D-4F4D-8177-DBD0F1E02ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90CA8E0F-9B0D-4F4D-8177-DBD0F1E02ADA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +65,8 @@ Global
 		{AEF6E4C6-824C-49F3-9384-2625B3A93CB5} = {E13C1E2E-3548-4893-8C0D-622C3767C13A}
 		{80E60B20-4FF0-42CA-88BA-31A315EE9898} = {E13C1E2E-3548-4893-8C0D-622C3767C13A}
 		{AC2D2782-81D6-4513-BD4C-DDAFF389BFEC} = {BFE4E29C-F111-4057-B5F6-A194F8295AA0}
+		{59AA4309-1C62-4FB6-8A01-FED2A8B06F23} = {E13C1E2E-3548-4893-8C0D-622C3767C13A}
+		{90CA8E0F-9B0D-4F4D-8177-DBD0F1E02ADA} = {E13C1E2E-3548-4893-8C0D-622C3767C13A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AF1D8DAF-D12D-4313-A7D1-595327924D23}

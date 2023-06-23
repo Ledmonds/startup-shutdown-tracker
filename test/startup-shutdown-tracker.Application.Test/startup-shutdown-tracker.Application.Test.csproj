@@ -21,4 +21,8 @@
     <ProjectReference Include="..\..\src\startup-shutdown-tracker.Application\startup-shutdown-tracker.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Calculators\Day\" />
+  </ItemGroup>
+
 </Project>

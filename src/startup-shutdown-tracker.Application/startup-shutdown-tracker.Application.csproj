@@ -3,10 +3,11 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>startup_shutdown_tracker.Application</RootNamespace>
-    <Nullable>annotations</Nullable>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\startup-shutdown-tracker.Common\startup-shutdown-tracker.Common.csproj" />
     <ProjectReference Include="..\startup-shutdown-tracker.Domain\startup-shutdown-tracker.Domain.csproj" />
   </ItemGroup>
 

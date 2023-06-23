@@ -1,12 +1,12 @@
 ﻿using CsvHelper;
-using startup_shutdown_tracker.Application;
 using startup_shutdown_tracker.Domain;
+using startup_shutdown_tracker.Tracking.Application;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace startup_shutdown_tracker.Infrastructure;
+namespace startup_shutdown_tracker.Infrastructure.Repositories;
 
 public class TrackerRepository : ITrackerRepository
 {

@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\startup-shutdown-tracker.Application\startup-shutdown-tracker.Application.csproj" />
 	<ProjectReference Include="..\startup-shutdown-tracker.Domain\startup-shutdown-tracker.Domain.csproj" />
+	<ProjectReference Include="..\startup-shutdown-tracker.Tracking.Application\startup-shutdown-tracker.Tracking.Application.csproj" />
   </ItemGroup>
 
 </Project>
