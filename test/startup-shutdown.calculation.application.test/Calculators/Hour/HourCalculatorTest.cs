@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
-using startup_shutdown_tracker.Application.Calculators.Hour;
+using startup_shutdown.calculation.application.Calculators.Hour;
 using Xunit;
 
-namespace startup_shutdown_tracker.Application.Test.Calculators.Hour;
+namespace Calculators.Hour;
 
 public class HourCalculatorTest
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace startup_shutdown_tracker.Common;
+namespace startup_shutdown.common;
 
 public interface ITimeProvider
 {

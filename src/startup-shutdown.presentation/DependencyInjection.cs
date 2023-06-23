@@ -1,12 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using startup_shutdown_tracker.Application;
-using startup_shutdown_tracker.Application.Calculators.Day;
-using startup_shutdown_tracker.Application.Calculators.Hour;
-using startup_shutdown_tracker.Application.Calculators.Presentation;
-using startup_shutdown_tracker.Common;
-using startup_shutdown_tracker.Infrastructure;
-using startup_shutdown_tracker.Infrastructure.Repositories;
-using startup_shutdown_tracker.Tracking.Application;
+using startup_shutdown.calculation.application;
+using startup_shutdown.calculation.application.Calculators.Day;
+using startup_shutdown.calculation.application.Calculators.Hour;
+using startup_shutdown.calculation.application.Calculators.Presentation;
+using startup_shutdown.common;
+using startup_shutdown.infrastructure;
+using startup_shutdown.infrastructure.Repositories;
+using startup_shutdown.tracking.application;
+
+namespace startup_shutdown.presentation;
 
 public static class ServiceCollectionExtensions
 {

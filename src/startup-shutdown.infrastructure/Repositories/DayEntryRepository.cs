@@ -1,14 +1,14 @@
-﻿using startup_shutdown_tracker.Application;
-using startup_shutdown_tracker.Application.Calculators.Day;
-using startup_shutdown_tracker.Application.Calculators.Hour;
-using startup_shutdown_tracker.Domain;
-using startup_shutdown_tracker.Tracking.Application;
+﻿using startup_shutdown.calculation.application;
+using startup_shutdown.calculation.application.Calculators.Day;
+using startup_shutdown.calculation.application.Calculators.Hour;
+using startup_shutdown.tracking.application;
+using startup_shutdown.tracking.domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace startup_shutdown_tracker.Infrastructure.Repositories;
+namespace startup_shutdown.infrastructure.Repositories;
 
 public class DayEntryRepository : IDayEntryRepository
 {

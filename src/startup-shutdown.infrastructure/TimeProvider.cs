@@ -1,7 +1,7 @@
-﻿using startup_shutdown_tracker.Common;
+﻿using startup_shutdown.common;
 using System;
 
-namespace startup_shutdown_tracker.Infrastructure;
+namespace startup_shutdown.infrastructure;
 
 public class TimeProvider : ITimeProvider
 {

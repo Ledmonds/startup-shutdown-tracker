@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace startup_shutdown_tracker.Domain;
+namespace startup_shutdown.tracking.domain;
 
 public class Tracker
 {
-	public IList<TrackerEntry> Entries { get; init; } = new List<TrackerEntry>();
+    public IList<TrackerEntry> Entries { get; init; } = new List<TrackerEntry>();
 }

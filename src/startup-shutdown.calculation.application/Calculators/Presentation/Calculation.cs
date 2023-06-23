@@ -1,7 +1,7 @@
-﻿namespace startup_shutdown_tracker.Application.Calculators.Presentation;
+﻿namespace startup_shutdown.calculation.application.Calculators.Presentation;
 
 public record Calculation(
-	MetricCalculation Total,
-	MetricCalculation Monthly,
-	MetricCalculation Weekly
+    MetricCalculation Total,
+    MetricCalculation Monthly,
+    MetricCalculation Weekly
 );

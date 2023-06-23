@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
-		<RootNamespace>startup_shutdown_tracker.Tracking.Application</RootNamespace>
+		<RootNamespace>startup_shutdown.tracking.application</RootNamespace>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 

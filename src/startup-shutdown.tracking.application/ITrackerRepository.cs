@@ -1,7 +1,7 @@
-﻿using startup_shutdown_tracker.Domain;
+﻿using startup_shutdown.tracking.domain;
 using System.Threading.Tasks;
 
-namespace startup_shutdown_tracker.Tracking.Application;
+namespace startup_shutdown.tracking.application;
 
 public interface ITrackerRepository
 {

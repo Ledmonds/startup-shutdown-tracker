@@ -1,10 +1,10 @@
-﻿using startup_shutdown_tracker.Application.Calculators.Day;
-using startup_shutdown_tracker.Application.Calculators.Hour;
+﻿using startup_shutdown.calculation.application.Calculators.Day;
+using startup_shutdown.calculation.application.Calculators.Hour;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace startup_shutdown_tracker.Application;
+namespace startup_shutdown.calculation.application;
 
 public interface IDayEntryRepository
 {

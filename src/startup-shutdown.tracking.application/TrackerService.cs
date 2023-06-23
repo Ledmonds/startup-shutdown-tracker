@@ -1,10 +1,10 @@
-﻿using startup_shutdown_tracker.Common;
-using startup_shutdown_tracker.Domain;
+﻿using startup_shutdown.common;
+using startup_shutdown.tracking.domain;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace startup_shutdown_tracker.Tracking.Application;
+namespace startup_shutdown.tracking.application;
 
 public class TrackerService
 {

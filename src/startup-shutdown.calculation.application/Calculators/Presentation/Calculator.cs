@@ -1,11 +1,12 @@
-﻿using startup_shutdown_tracker.Application.Calculators.Day;
-using startup_shutdown_tracker.Common;
+﻿using startup_shutdown.calculation.application;
+using startup_shutdown.calculation.application.Calculators.Day;
+using startup_shutdown.common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace startup_shutdown_tracker.Application.Calculators.Presentation;
+namespace startup_shutdown.calculation.application.Calculators.Presentation;
 
 public class Calculator
 {
