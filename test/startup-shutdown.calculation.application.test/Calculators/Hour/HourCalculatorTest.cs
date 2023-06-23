@@ -1,7 +1,5 @@
 ﻿using FluentAssertions;
 using startup_shutdown_tracker.Application.Calculators.Hour;
-using System;
-using System.Collections.Generic;
 using Xunit;
 
 namespace startup_shutdown_tracker.Application.Test.Calculators.Hour;

@@ -7,8 +7,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\startup-shutdown-tracker.Common\startup-shutdown-tracker.Common.csproj" />
-	  <ProjectReference Include="..\startup-shutdown-tracker.Domain\startup-shutdown-tracker.Domain.csproj" />
+	  <ProjectReference Include="..\startup-shutdown.common\startup-shutdown.common.csproj" />
+	  <ProjectReference Include="..\startup-shutdown.tracking.domain\startup-shutdown.tracking.domain.csproj" />
 	</ItemGroup>
 
 </Project>

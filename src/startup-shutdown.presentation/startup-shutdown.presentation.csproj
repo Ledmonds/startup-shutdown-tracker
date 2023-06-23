@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\startup-shutdown-tracker.Application\startup-shutdown-tracker.Application.csproj" />
-    <ProjectReference Include="..\startup-shutdown-tracker.Infrastructure\startup-shutdown-tracker.Infrastructure.csproj" />
+    <ProjectReference Include="..\startup-shutdown.calculation.application\startup-shutdown.calculation.application.csproj" />
+    <ProjectReference Include="..\startup-shutdown.infrastructure\startup-shutdown.infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\startup-shutdown-tracker.Application\startup-shutdown-tracker.Application.csproj" />
-	<ProjectReference Include="..\startup-shutdown-tracker.Domain\startup-shutdown-tracker.Domain.csproj" />
-	<ProjectReference Include="..\startup-shutdown-tracker.Tracking.Application\startup-shutdown-tracker.Tracking.Application.csproj" />
+    <ProjectReference Include="..\startup-shutdown.calculation.application\startup-shutdown.calculation.application.csproj" />
+	<ProjectReference Include="..\startup-shutdown.tracking.domain\startup-shutdown.tracking.domain.csproj" />
+	<ProjectReference Include="..\startup-shutdown.tracking.application\startup-shutdown.tracking.application.csproj" />
   </ItemGroup>
 
 </Project>
