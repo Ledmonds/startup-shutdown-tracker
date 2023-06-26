@@ -13,7 +13,7 @@
 		<PackageReference Include="xunit" />
 		<PackageReference Include="FluentAssertions" />
 		<PackageReference Include="FluentAssertions.ArgumentMatchers.Moq" />
-		<PackageReference Include="xunit.runner.visualstudio" >
+		<PackageReference Include="xunit.runner.visualstudio">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
